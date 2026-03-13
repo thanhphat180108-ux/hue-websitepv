@@ -7,10 +7,37 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
+<style>.fade-scroll{
+    opacity:0;
+    transform:translateY(60px);
+    transition:all 0.9s ease;
+}
+
+.fade-scroll.show{
+    opacity:1;
+    transform:translateY(0);
+}
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
-body{
+<script>
+const elements = document.querySelectorAll(".fade-scroll");
+
+function checkScroll(){
+    const trigger = window.innerHeight * 0.85;
+
+    elements.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+
+        if(top < trigger){
+            el.classList.add("show");
+        }else{
+            el.classList.remove("show");
+        }
+    });
+}
+
+window.addEventListener("scroll", checkScroll);
+</script>body{
     font-family:'Montserrat',sans-serif;
     background:#fff8f3;
     color:#3b1f1f;
