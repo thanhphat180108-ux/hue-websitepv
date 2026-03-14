@@ -7,7 +7,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
+<style>.card-content{
+max-height:0;
+overflow:hidden;
+transition:max-height 0.6s ease;
+}
+
+.card.active .card-content{
+max-height:500px;
+}
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
 body{
